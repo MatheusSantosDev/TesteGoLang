@@ -10,7 +10,6 @@ import (
 )
 
 type Post struct {
-	Id    int    `json:"id"`
 	Name  string `json:"name"`
 	Email string `json:"email"`
 	Body  string `json:"body"`
@@ -51,7 +50,7 @@ func main() {
 
 func worker(channel chan Post) {
 	for p := range channel {
-		fmt.Println("From: "+p.Email+" id: ", p.Id, "\n"+p.Name+" Say "+p.Body+"\n")
+		fmt.Println("From: " + p.Email + "\n" + p.Name + " Say " + p.Body + "\n")
 		time.Sleep(time.Second * 1)
 	}
 
