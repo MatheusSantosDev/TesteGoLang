@@ -36,11 +36,9 @@ func main() {
 
 	channel := make(chan Post)
 
-	go func() {
-		for i := 0; i < 50; i++ {
-			go worker(channel)
-		}
-	}()
+	for i := 0; i < 50; i++ {
+		go worker(channel)
+	}
 
 	for _, post := range posts {
 		channel <- post
